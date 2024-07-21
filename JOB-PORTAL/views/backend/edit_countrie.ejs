@@ -1,0 +1,22 @@
+<%- include('./layout/header') %>
+    <div class="container">
+
+        <h2 class="countrie-id">Edit a countrie</h2>
+        <a href="/countries" class="btn btn-primary">Back to all countries</a>
+        <br><br>
+
+
+
+
+        <form method="post" action="/edit-countrie/<%= id %>">
+
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Name" value="<%= countrie.name %>">
+            </div>
+        
+        
+            <button class="btn btn-primary mt-3">Submit</button>
+        </form>
+                </div>
+    <%- include('./layout/footer') %>

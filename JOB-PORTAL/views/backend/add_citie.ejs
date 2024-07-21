@@ -1,0 +1,39 @@
+<%- include('./layout/header') %>
+
+<h2 class="page-title">Add a page</h2>
+<a href="/citie" class="btn btn-primary">Back to all cities</a>
+<br><br>
+<div class="container mt-5">
+  <% if (message) { %>
+    <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong><%= message.message %></strong>
+    </div>
+<% } %>
+
+
+
+<form method="post" action="/add_citie">
+
+  <div class="mb-3">
+    <label for="">Name</label>
+    <input type="text" class="form-control" name="name" placeholder="Name" />
+  </div>
+
+
+  <div class="mb-3">
+    <label for="countrie_id">Country_Name</label>
+    <select class="form-control form-control-lg" name="countrie_id" id="countrie_id">
+        <option value="">Select an option</option>
+        <% countries.forEach(function(countrie) { %>
+            <option value="<%= countrie._id %>"><%= countrie.name %></option>
+        <% }); %>
+    </select>
+  </div>
+
+  <button class="btn btn-primary mt-3">Submit</button>
+</form>
+
+
+
+<%- include('./layout/footer') %>

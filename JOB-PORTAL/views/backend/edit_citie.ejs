@@ -1,0 +1,38 @@
+<%- include('./layout/header') %>
+    <div class="container">
+
+        <h2 class="citie-id">Edit a citie</h2>
+        <a href="/cities" class="btn btn-success">Back to all cities</a>
+        <br><br>
+
+
+
+
+        <form method="post" action="/edit-citie/<%= id %>">
+
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Name" value="<%= citie.name %>">
+            </div>
+        
+            <div class="mb-3">
+                <label for="countrie_id">Countrie</label>
+                <select class="form-control form-control-lg" name="countrie_id" id="countrie_id">
+                    <% countries.forEach(function(countrie) { %>
+                        <% if (countrie.countrie_id && countrie._id.toString()===countrie.countrie_id.toString()) { %>
+                            <option value="<%= admin._id %>" selected>
+                                <%= countrie.name %>
+                            </option>
+                            <% } else { %>
+                                <option value="<%= countrie._id %>">
+                                    <%= countrie.name %>
+                                </option>
+                                <% } %>
+                                    <% }); %>
+                </select>
+            </div>
+    
+            <button class="btn btn-success mt-3">Submit</button>
+        </form>
+                </div>
+    <%- include('./layout/footer') %>

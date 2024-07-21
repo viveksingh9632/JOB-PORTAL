@@ -1,0 +1,28 @@
+<%- include('./layout/header') %>
+
+<h2 class="page-title">Add a page</h2>
+<a href="/countries" class="btn btn-primary">Back to all countries</a>
+<br><br>
+<div class="container mt-5">
+  <% if (message) { %>
+    <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong><%= message.message %></strong>
+    </div>
+<% } %>
+
+
+
+<form method="post" action="/add_countrie">
+
+  <div class="mb-3">
+    <label for="">Name</label>
+    <input type="text" class="form-control" name="name" placeholder="Name" />
+  </div>
+
+  <button class="btn btn-primary mt-3">Submit</button>
+</form>
+
+
+
+<%- include('./layout/footer') %>

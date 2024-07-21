@@ -1,0 +1,82 @@
+<%- include('./layout/header') %>
+
+<h2 class="page-title">Add a job</h2>
+<a href="/jobs" class="btn btn-primary">Back to all jobs</a>
+<br><br>
+<div class="container mt-5">
+  <% if (message) { %>
+    <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong><%= message.message %></strong>
+    </div>
+  <% } %>
+
+  <form method="post" action="/add_job">
+
+
+    <div class="mb-3">
+      <label for="categorie_id">Job Category</label>
+      <select class="form-control " name="categorie_id" id="categorie_id">
+          <option value="">Select an option</option>
+          <% categories.forEach(function(categorie) { %>
+              <option value="<%= categorie._id %>"><%= categorie.category %></option>
+          <% }); %>
+      </select>
+    </div>
+  
+
+
+    <div class="mb-3">
+      <label for="employer_id">Employer_ID</label>
+      <select class="form-control " name="employer_id" id="employer_id">
+          <option value="">Select an option</option>
+          <% employers.forEach(function(employer) { %>
+              <option value="<%= employer._id %>"><%= employer.name %></option>
+          <% }); %>
+      </select>
+    </div>
+
+
+
+
+    <div class="mb-3">
+      <label for="city_id">City_ID</label>
+      <select class="form-control " name="citie_id" id="citie_id">
+          <option value="">Select an option</option>
+          <% cities.forEach(function(citie) { %>
+              <option value="<%= citie._id %>"><%= citie.name %></option>
+          <% }); %>
+      </select>
+    </div>
+
+
+
+    <div class="mb-3">
+      <label for="">Title</label>
+      <input type="text" class="form-control" name="title" placeholder="title" />
+    </div>
+  
+    <div class="form-group">
+      <label for="">Description</label>
+      <textarea name="desc" class="form-control" cols="30" rows="10" placeholder="Description"></textarea>
+  </div>
+  
+
+
+
+
+    <div class="mb-3">
+      <label for="pay">Pay</label>
+      <input type="pay" class="form-control" id="pay" name="pay" placeholder="Pay" />
+    </div>
+
+
+
+
+
+
+    <button class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>
+
+<%- include('./layout/footer') %>

@@ -1,0 +1,98 @@
+<%- include('./layout/header') %>
+    <div class="container">
+
+        <h2 class="jobs-id">Edit a jobs</h2>
+        <a href="/jobs" class="btn btn-primary">Back to all jobss</a>
+        <br><br>
+
+
+
+
+        <form method="post" action="/edit-job/<%= id %>">
+
+
+            <div class="mb-3">
+                <label for="categorie_id">Job Category</label>
+                <select class="form-control " name="categorie_id" id="categorie_id">
+                    <% categories.forEach(function(categorie) { %>
+                        <% if (categorie.categorie_id && categorie._id.toString()===categorie.categorie_id.toString()) { %>
+                            <option value="<%= job._id %>" selected>
+                                <%= categorie.category %>
+                            </option>
+                            <% } else { %>
+                                <option value="<%= categorie._id %>">
+                                    <%= categorie.category %>
+                                </option>
+                                <% } %>
+                                    <% }); %>
+                </select>
+            </div>
+    
+
+    
+
+
+            <div class="mb-3">
+                <label for="employer_id">Employer Id</label>
+                <select class="form-control " name="employer_id" id="employer_id">
+                    <% employers.forEach(function(employer) { %>
+                        <% if (employer.employer_id && employer._id.toString()===employer.employer_id.toString()) { %>
+                            <option value="<%= job._id %>" selected>
+                                <%= employer.name %>
+                            </option>
+                            <% } else { %>
+                                <option value="<%= employer._id %>">
+                                    <%= employer.name %>
+                                </option>
+                                <% } %>
+                                    <% }); %>
+                </select>
+            </div>
+
+
+
+            <div class="mb-3">
+                <label for="citie_id"> City_Id</label>
+                <select class="form-control " name="citie_id" id="citie_id">
+                    <% cities.forEach(function(citie) { %>
+                        <% if (citie.citie_id && citie._id.toString()===citie.citie_id.toString()) { %>
+                            <option value="<%= citie._id %>" selected>
+                                <%= citie.name %>
+                            </option>
+                            <% } else { %>
+                                <option value="<%= citie._id %>">
+                                    <%= citie.name %>
+                                </option>
+                                <% } %>
+                                    <% }); %>
+                </select>
+            </div>
+
+
+
+            <div class="form-group">
+                <label for="">Title</label>
+                <input type="text" class="form-control" name="title"  placeholder="Title"   value="<%= job.title %>">
+            </div>
+            
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" name="desc" placeholder="Description" value="<%= job.desc %>">
+            </div>
+        
+        
+        
+            <div class="mb-3">
+              <label for="pay">Pay</label>
+              <input type="pay" class="form-control" id="pay" name="pay" placeholder="Pay"  value="<%= job.pay %>" />
+            </div>
+        
+        
+        
+        
+        
+        
+            <button class="btn btn-primary mt-3">Submit</button>
+                </form>
+    </div>
+    <%- include('./layout/footer') %>

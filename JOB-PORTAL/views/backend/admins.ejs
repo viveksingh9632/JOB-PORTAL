@@ -1,0 +1,69 @@
+<%- include("./layout/header") %>
+
+<div class="container">
+  <h2 class="admin-Id">Admins</h2>
+  <a href="/add_admin" class="btn btn-primary">Add a new admin</a>
+
+  <br /><br />
+
+
+  <div class="container mt-5">
+    <% if (message) { %>
+      <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          <strong><%= message.message %></strong>
+      </div>
+  <% } %>
+</div>
+    <table class="table table-striped sorting">
+    <thead>
+      <tr class="home">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Created Date</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% admins.forEach((admin) => { %>
+
+      <tr>
+        <td><%= admin.id %></td>
+        <td><%= admin.name %></td>
+        <td><%= admin.email %></td>
+        <td>
+          <% if (admin.categorie_id) { %>
+            <p>
+              <%= admin.categorie_id.status %>
+            </p>
+          <% } %>
+        </td>
+        <td><%= admin.createdAt %></td>
+
+        <td>
+          <a
+            href="/edit-admin/<%= admin._id %>"
+            aria-label="Edit User"
+            Id="Edit User"
+            class="action-link"
+          >
+            <i class="fas fa-edit fa-lg mx-1 text-success"></i>
+          </a>
+          <a
+            href="/delete-admin/<%= admin._id %>"
+            aria-label="Delete User"
+            Id="Delete User"
+            class="action-link"
+          >
+            <i class="fas fa-trash fa-lg mx-1 text-danger"></i>
+          </a>
+        </td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("./layout/footer") %>

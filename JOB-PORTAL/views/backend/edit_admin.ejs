@@ -1,0 +1,49 @@
+<%- include('./layout/header') %>
+    <div class="container">
+
+        <h2 class="admin-id">Edit a admin</h2>
+        <a href="/admins" class="btn btn-primary">Back to all admins</a>
+        <br><br>
+
+
+
+
+        <form method="post" action="/edit-admin/<%= id %>">
+
+    
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Name" value="<%= admin.name %>">
+            </div>
+
+
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="text" class="form-control" name="email" placeholder="Email" value="<%= admin.email %>">
+            </div>
+
+
+        <div class="mb-3">
+            <label for="categorie_id">Status</label>
+            <select class="form-control form-control-lg" name="categorie_id" id="categorie_id">
+                <% categories.forEach(function(categorie) { %>
+                    <% if (categorie.categorie_id && categorie._id.toString()===categorie.categorie_id.toString()) { %>
+                        <option value="<%= admin._id %>" selected>
+                            <%= categorie.status %>
+                        </option>
+                        <% } else { %>
+                            <option value="<%= categorie._id %>">
+                                <%= categorie.status %>
+                            </option>
+                            <% } %>
+                                <% }); %>
+            </select>
+        </div>
+
+
+
+
+            <button class="btn btn-primary mt-3 ">Submit</button>
+        </form>
+    </div>
+    <%- include('./layout/footer') %>

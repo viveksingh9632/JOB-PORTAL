@@ -1,0 +1,43 @@
+<%- include('./layout/header') %>
+    <div class="container">
+
+        <h2 class="employe-id">Edit a employe</h2>
+        <a href="/employes" class="btn btn-primary">Back to all employes</a>
+        <br><br>
+
+
+
+
+        <form method="post" action="/edit-employe/<%= id %>">
+
+    
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="text" class="form-control" name="name" placeholder="Name" value="<%= employe.name %>">
+            </div>
+
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="text" class="form-control" name="email" placeholder="Email" value="<%= employe.email %>">
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="text" class="form-control" name="password" placeholder="Password" value="<%= employe.password %>">
+            </div>
+
+
+            <div class="form-group">
+                <label for="Status">Status</label>
+                <input type="text" class="form-control" name="status" placeholder="Status" value="<%= employe.status %>">
+            </div>
+
+
+
+            <button class="btn btn-primary mt-3 ">Submit</button>
+        </form>
+    </div>
+    <%- include('./layout/footer') %>

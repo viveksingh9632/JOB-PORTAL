@@ -1,0 +1,44 @@
+<%- include('./layout/header') %>
+
+<h2 class="page-title">Add a page</h2>
+<a href="/employes" class="btn btn-primary">Back to all employes</a>
+<br><br>
+<div class="container mt-5">
+  <% if (message) { %>
+    <div class="alert alert-dismissible fade show alert-<%= message.type %>" role="alert">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <strong><%= message.message %></strong>
+    </div>
+  <% } %>
+
+  <form method="post" action="/add_employe">
+    <div class="mb-3">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Name" />
+    </div>
+
+    <div class="mb-3">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" id="email" name="email" placeholder="Email" />
+    </div>
+
+    <div class="mb-3">
+      <label for="password">Password</label>
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password" />
+    </div>
+    <div class="mb-3">
+        <label for="">Status</label>
+        <input
+          type="status"
+          class="form-control"
+          name="status"
+          placeholder="Status"
+        />
+      </div>
+    
+
+    <button class="btn btn-primary mt-3">Submit</button>
+  </form>
+</div>
+
+<%- include('./layout/footer') %>

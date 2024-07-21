@@ -1,0 +1,31 @@
+<%- include('./layout/header') %>
+    <div class="container">
+
+        <h2 class="categorie-id">Edit a categorie</h2>
+        <a href="/categories" class="btn btn-primary">Back to all categories</a>
+        <br><br>
+
+
+
+
+        <form method="post" action="/edit-categorie/<%= id %>">
+
+            <div class="form-group">
+                <label for="category">Category</label>
+                <input type="text" class="form-control" name="category" placeholder="category" value="<%= categorie.category %>">
+            </div>
+        
+            <div class="form-group">
+                <label for="description">Description</label>
+                <input type="text" class="form-control" name="desc" placeholder="Description" value="<%= categorie.desc %>">
+            </div>
+        
+            <div class="form-group">
+                <label for="status">Status</label>
+                <input type="text" class="form-control" name="status" placeholder="status" value="<%= categorie.status %>">
+            </div>
+        
+            <button class="btn btn-primary mt-3">Submit</button>
+        </form>
+                </div>
+    <%- include('./layout/footer') %>
